@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo Installing dependencies...
+      - npm install
+
+  build:
+    commands:
+      - echo Building Docker image...
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/j9v3f8u1
+      - docker build -t my-js-app .
+      - echo Pushing Docker image to ECR...
+      - docker tag my-js-app:latest public.ecr.aws/j9v3f8u1/angular-app/my-js-app:latest
+      - docker push public.ecr.aws/j9v3f8u1/angular-app/my-js-app:latest
+
+artifacts:
+  files:
+    - appspec.yml
