@@ -15,7 +15,7 @@ phases:
       - docker build -t my-js-app .
       - echo Pushing Docker image to ECR...
       - docker tag my-js-app:latest public.ecr.aws/j9v3f8u1/angular-app:latest
-      - docker push public.ecr.aws/j9v3f8u1/angular-app/my-js-app:latest
+      - docker push public.ecr.aws/j9v3f8u1/angular-app:latest
 
 artifacts:
   files:
