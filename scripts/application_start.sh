@@ -1,18 +1,7 @@
 #!/bin/bash
 
-#give permission for everything in the express-app directory
-sudo chmod -R 777 /home/ubuntu/myapp
+# Remove any previously stopped container
+docker rm my-js-app-container || true
 
-#navigate into our working directory where we have all our github files
-cd /home/ubuntu/myapp
-
-#add npm and node to path
-#export NVM_DIR="$HOME/.nvm"	
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # loads nvm	
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion (node is in path now)
-
-#install node modules
-npm install
-
-#start our node app in the background
-npm run
+# Start a new container
+docker run -d --name my-js-app-container -p 80:80 public.ecr.aws/j9v3f8u1/angular-app/my-js-app:latest
