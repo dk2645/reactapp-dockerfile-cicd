@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Stop the running container
+docker stop my-js-app-container
+
 # Remove any previously stopped container
 docker rm my-js-app-container || true
 
