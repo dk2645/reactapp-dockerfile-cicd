@@ -14,5 +14,7 @@ phases:
 
 artifacts:
   files:
-    - build/**
     - Dockerfile
+    - build/**
+    - appspec.yml
+    - scripts/**
