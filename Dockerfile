@@ -1,10 +1,13 @@
-FROM node:16
+# Use the official Nginx image as the base image
+FROM nginx:latest
 
-# Create app directory
-WORKDIR /hello-world
-
+WORKDIR /usr/share/nginx/html
 COPY . .
 
 
-EXPOSE 3000
-CMD ["npm", "start"]
+# Copy the index.html file from the /helloworld directory to the default Nginx web root
+#COPY /helloworld/index.html /usr/share/nginx/html
+
+# Expose port 80 to allow incoming traffic
+EXPOSE 80
+CMD ["service", "nginx", "restart"]
