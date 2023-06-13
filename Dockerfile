@@ -2,7 +2,7 @@
 FROM nginx:latest
 
 WORKDIR /usr/share/nginx/html
-COPY . .
+COPY build/ .
 
 
 # Copy the index.html file from the /helloworld directory to the default Nginx web root
