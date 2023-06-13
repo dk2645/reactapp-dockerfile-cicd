@@ -6,7 +6,7 @@ files:
     destination: /home/ubuntu/hello-world
 
 hooks:
-  BeforeInstall:
+  ApplicationStop:
     - location: scripts/application_stop.sh
       timeout: 300
       runas: ubuntu
