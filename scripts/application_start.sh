@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Stop the running container
-sudo docker stop my-js-app-container
+# Stop the running production container
+sudo docker stop my-production-container || true
 
-# Remove any previously stopped container
-sudo docker rm my-js-app-container || true
+# Remove the stopped container
+sudo docker rm my-production-container || true
 
-# Start a new container
-sudo docker run -d --name my-js-app-container -p 80:8080 public.ecr.aws/j9v3f8u1/angular-app:latest
+# Build a new production image
+sudo docker build -t my-production-image:latest .
+
+# Run a new container using the new image
+sudo docker run -d --name my-production-container -p 80:3000 my-production-image:latest
