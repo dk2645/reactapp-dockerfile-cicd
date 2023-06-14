@@ -13,4 +13,4 @@ cd /home/ubuntu/new-app
 sudo docker build -t my-production-image:latest .
 
 # Run a new container using the new image
-sudo docker run -d --name my-production-container -p 80:3000 my-production-image:latest
+sudo docker run -d --name my-production-container -p 81:3000 my-production-image:latest
