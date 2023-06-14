@@ -6,6 +6,9 @@ sudo docker stop my-production-container || true
 # Remove the stopped container
 sudo docker rm my-production-container || true
 
+#change dir
+cd /home/ubuntu/new-app
+
 # Build a new production image
 sudo docker build -t my-production-image:latest .
 
